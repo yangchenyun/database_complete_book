@@ -1,0 +1,82 @@
+/*
+ * This file can re-populate the database with our pizzeria data,
+ * if the data gets modified or the database is corrupted.
+ * To use, execute "java -jar ra.jar -i sample.ra" at the command line.
+ */
+
+/* Delete the tables if they already exist */
+\sqlexec_{drop table if exists Product};
+\sqlexec_{drop table if exists PC};
+\sqlexec_{drop table if exists Laptop};
+\sqlexec_{drop table if exists Printer};
+
+/* Create the schema for our tables */
+\sqlexec_{create table Product(maker text, model text, type text)};
+\sqlexec_{create table PC(model text, speed decimal, ram integer, hd integer, price decimal)};
+\sqlexec_{create table Laptop(model text, speed decimal, ram integer, hd integer, screen decimal, price decimal)};
+\sqlexec_{create table Printer(model text, color text, type text, price decimal)};
+
+/* Populate the tables with our data */
+\sqlexec_{insert into Product values('A', 1001, 'pc')};
+\sqlexec_{insert into Product values('A', 1002, 'pc')};
+\sqlexec_{insert into Product values('A', 1003, 'pc')};
+\sqlexec_{insert into Product values('A', 2004, 'laptop')};
+\sqlexec_{insert into Product values('A', 2005, 'laptop')};
+\sqlexec_{insert into Product values('A', 2006, 'laptop')};
+\sqlexec_{insert into Product values('B', 1004, 'pc')};
+\sqlexec_{insert into Product values('B', 1005, 'pc')};
+\sqlexec_{insert into Product values('B', 1006, 'pc')};
+\sqlexec_{insert into Product values('B', 2007, 'laptop')};
+\sqlexec_{insert into Product values('C', 1007, 'pc')};
+\sqlexec_{insert into Product values('D', 1008, 'pc')};
+\sqlexec_{insert into Product values('D', 1009, 'pc')};
+\sqlexec_{insert into Product values('D', 1010, 'pc')};
+\sqlexec_{insert into Product values('D', 3004, 'printer')};
+\sqlexec_{insert into Product values('D', 3005, 'printer')};
+\sqlexec_{insert into Product values('E', 1011, 'pc')};
+\sqlexec_{insert into Product values('E', 1012, 'pc')};
+\sqlexec_{insert into Product values('E', 1003, 'pc')};
+\sqlexec_{insert into Product values('E', 2001, 'laptop')};
+\sqlexec_{insert into Product values('E', 2002, 'laptop')};
+\sqlexec_{insert into Product values('E', 2003, 'laptop')};
+\sqlexec_{insert into Product values('E', 3001, 'printer')};
+\sqlexec_{insert into Product values('E', 3002, 'printer')};
+\sqlexec_{insert into Product values('E', 3003, 'printer')};
+\sqlexec_{insert into Product values('F', 2008, 'laptop')};
+\sqlexec_{insert into Product values('F', 2009, 'laptop')};
+\sqlexec_{insert into Product values('G', 2010, 'laptop')};
+\sqlexec_{insert into Product values('H', 3006, 'printer')};
+\sqlexec_{insert into Product values('H', 3007, 'printer')};
+
+\sqlexec_{insert into PC values('1001', 2.66, 1024, 250, 2114)};
+\sqlexec_{insert into PC values('1002', 2.10, 512, 250, 995)};
+\sqlexec_{insert into PC values('1003', 1.42, 512, 80, 478)};
+\sqlexec_{insert into PC values('1004', 2.80, 1024, 250, 649)};
+\sqlexec_{insert into PC values('1005', 3.20, 512, 250, 630)};
+\sqlexec_{insert into PC values('1006', 3.20, 1024, 320, 1049)};
+\sqlexec_{insert into PC values('1007', 2.20, 1024, 200, 510)};
+\sqlexec_{insert into PC values('1008', 2.20, 2048, 250, 770)};
+\sqlexec_{insert into PC values('1009', 2.00, 1024, 250, 650)};
+\sqlexec_{insert into PC values('1010', 2.80, 2048, 300, 770)};
+\sqlexec_{insert into PC values('1011', 1.86, 2048, 160, 959)};
+\sqlexec_{insert into PC values('1012', 2.80, 1024, 160, 649)};
+\sqlexec_{insert into PC values('1013', 3.06, 512, 80, 529)};
+
+\sqlexec_{insert into Laptop values('2001', 2.00, 2048, 240, 20.1, 3673)};
+\sqlexec_{insert into Laptop values('2002', 1.73, 1024, 80, 17.0, 949)};
+\sqlexec_{insert into Laptop values('2003', 1.80, 512, 60, 15.4, 549)};
+\sqlexec_{insert into Laptop values('2004', 2.00, 512, 60, 13.3, 1150)};
+\sqlexec_{insert into Laptop values('2005', 2.16, 1024, 120, 17.0, 2500)};
+\sqlexec_{insert into Laptop values('2006', 2.00, 2048, 80, 15.4, 1700)};
+\sqlexec_{insert into Laptop values('2007', 1.83, 1024, 120, 13.3, 1429)};
+\sqlexec_{insert into Laptop values('2008', 1.60, 1024, 100, 15.4, 900)};
+\sqlexec_{insert into Laptop values('2009', 1.60, 512, 80, 14.1, 680)};
+\sqlexec_{insert into Laptop values('2010', 2.00, 2048, 160, 15.4, 2300)};
+
+\sqlexec_{insert into Printer values('3001', 'true', 'ink-jet', 99)};
+\sqlexec_{insert into Printer values('3002', 'false', 'laser', 239)};
+\sqlexec_{insert into Printer values('3003', 'true', 'laser', 899)};
+\sqlexec_{insert into Printer values('3004', 'true', 'ink-jet', 120)};
+\sqlexec_{insert into Printer values('3005', 'false', 'laser', 120)};
+\sqlexec_{insert into Printer values('3006', 'true', 'ink-jet', 100)};
+\sqlexec_{insert into Printer values('3007', 'true', 'laser', 200)};
