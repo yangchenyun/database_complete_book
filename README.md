@@ -7,4 +7,4 @@ It used the [`ra`](http://www.cs.duke.edu/~junyang/ra/) to write relational alge
 - Follow the steps to install `ra`.
 - Put the executive `ra` to your `$HOME/bin` and **remember to edit the path to find `ra.jar` in your system.**
 - into each individual exercises, run `ra` to get the ra REPL to the database environment.
-- run `ra -i q1.ra` to run particular algebra.
+- run `ra -i q1.ra` to run particular algebra and see the result.
