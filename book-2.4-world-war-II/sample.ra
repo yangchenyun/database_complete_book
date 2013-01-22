@@ -1,0 +1,132 @@
+/*
+ * This file can re-populate the database with our pizzeria data,
+ * if the data gets modified or the database is corrupted.
+ * To use, execute "java -jar ra.jar -i sample.ra" at the command line.
+ */
+
+/* Delete the tables if they already exist */
+\sqlexec_{drop table if exists Classes};
+\sqlexec_{drop table if exists Ships};
+\sqlexec_{drop table if exists Battles};
+\sqlexec_{drop table if exists Outcomes};
+
+/* Create the schema for our tables */
+\sqlexec_{create table Classes(class text, type text, country text, numGuns integer, bore integer, displacement integer)};
+\sqlexec_{create table Ships(name text, class text, launched text)};
+\sqlexec_{create table Battles(name text, date text)};
+\sqlexec_{create table Outcomes(ship text, battle text, result text)};
+
+
+
+
+
+
+
+
+
+
+
+\sqlexec_{insert into Classes values("Bismarck","bb","Germany",8,15,42000)};
+
+\sqlexec_{insert into Classes values("Iowa","bb","USA",9,16,46000)};
+
+\sqlexec_{insert into Classes values("Kongo","bc","Japan",8,14,32000)};
+
+\sqlexec_{insert into Classes values("NorthCarolina","bb","USA",9,16,37000)};
+
+\sqlexec_{insert into Classes values("Renown","bc","Gt.Britain",6,15,32000)};
+
+\sqlexec_{insert into Classes values("Revenge","bb","Gt.Britain",8,15,29000)};
+
+\sqlexec_{insert into Classes values("Tennessee","bb","USA",12,14,32000)};
+
+\sqlexec_{insert into Classes values("Yamato","bb","Japan",9,18,65000)};
+
+
+
+\sqlexec_{insert into Outcomes values("Arizona","PearlHarbor","sunk")};
+
+\sqlexec_{insert into Outcomes values("Bismarck","DenmarkStrait","sunk")};
+
+\sqlexec_{insert into Outcomes values("California","SurigaoStrait","ok")};
+
+\sqlexec_{insert into Outcomes values("DukeofYork","NorthCape","ok")};
+
+\sqlexec_{insert into Outcomes values("Fuso","SurigaoStrait","sunk")};
+
+\sqlexec_{insert into Outcomes values("Hood","DenmarkStrait","sunk")};
+
+\sqlexec_{insert into Outcomes values("KingGeorgeV","DenmarkStrait","ok")};
+
+\sqlexec_{insert into Outcomes values("Kirishima","Guadalcanal","sunk")};
+
+\sqlexec_{insert into Outcomes values("PrinceofWales","DenmarkStrait","damaged")};
+
+\sqlexec_{insert into Outcomes values("Rodney","DenmarkStrait","ok")};
+
+\sqlexec_{insert into Outcomes values("Scharnhorst","NorthCape","sunk")};
+
+\sqlexec_{insert into Outcomes values("SouthDakota","Guadalcanal","damaged")};
+
+\sqlexec_{insert into Outcomes values("Tennessee","SurigaoStrait","ok")};
+
+\sqlexec_{insert into Outcomes values("Washington","Guadalcanal","ok")};
+
+\sqlexec_{insert into Outcomes values("WestVirginia","SurigaoStrait","ok")};
+
+\sqlexec_{insert into Outcomes values("Yamashiro","SurigaoStrait","sunk")};
+
+
+
+\sqlexec_{insert into Battles values("DenmarkStrait","5/24-27/41")};
+
+\sqlexec_{insert into Battles values("Guadalcanal","11/15/42")};
+
+\sqlexec_{insert into Battles values("NorthCape","12/26/43")};
+
+\sqlexec_{insert into Battles values("SurigaoStrait","10/25/44")};
+
+
+
+\sqlexec_{insert into Ships values("California","Tennessee","1921")};
+
+\sqlexec_{insert into Ships values("Haruna","Kongo","1915")};
+
+\sqlexec_{insert into Ships values("Hiei","Kongo","1914")};
+
+\sqlexec_{insert into Ships values("Iowa","Iowa","1943")};
+
+\sqlexec_{insert into Ships values("Kirishima","Kongo","1915")};
+
+\sqlexec_{insert into Ships values("Kongo","Kongo","1913")};
+
+\sqlexec_{insert into Ships values("Missouri","Iowa","1944")};
+
+\sqlexec_{insert into Ships values("Musashi","Yamato","1942")};
+
+\sqlexec_{insert into Ships values("NewJersey","Iowa","1943")};
+
+\sqlexec_{insert into Ships values("NorthCarolina","NorthCarolina","1941")};
+
+\sqlexec_{insert into Ships values("Ramillies","Revenge","1917")};
+
+\sqlexec_{insert into Ships values("Renown","Renown","1916")};
+
+\sqlexec_{insert into Ships values("Repulse","Renown","1916")};
+
+\sqlexec_{insert into Ships values("Resolution","Revenge","1916")};
+
+\sqlexec_{insert into Ships values("Revenge","Revenge","1916")};
+
+\sqlexec_{insert into Ships values("RoyalOak","Revenge","1916")};
+
+\sqlexec_{insert into Ships values("RoyalSovereign","Revenge","1916")};
+
+\sqlexec_{insert into Ships values("Tennessee","Tennessee","1920")};
+
+\sqlexec_{insert into Ships values("Washington","NorthCarolina","1941")};
+
+\sqlexec_{insert into Ships values("Wisconsin","Iowa","1944")};
+
+\sqlexec_{insert into Ships values("Yamato","Yamato","1941")};
+

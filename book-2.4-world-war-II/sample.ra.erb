@@ -1,0 +1,104 @@
+/*
+ * This file can re-populate the database with our pizzeria data,
+ * if the data gets modified or the database is corrupted.
+ * To use, execute "java -jar ra.jar -i sample.ra" at the command line.
+ */
+
+/* Delete the tables if they already exist */
+\sqlexec_{drop table if exists Classes};
+\sqlexec_{drop table if exists Ships};
+\sqlexec_{drop table if exists Battles};
+\sqlexec_{drop table if exists Outcomes};
+
+/* Create the schema for our tables */
+\sqlexec_{create table Classes(class text, type text, country text, numGuns integer, bore integer, displacement integer)};
+\sqlexec_{create table Ships(name text, class text, launched text)};
+\sqlexec_{create table Battles(name text, date text)};
+\sqlexec_{create table Outcomes(ship text, battle text, result text)};
+
+<% 
+klasses = %w{"Bismarck" "Iowa" "Kongo" "NorthCarolina" "Renown" "Revenge" "Tennessee" "Yamato"}
+types = %w{"bb" "bb" "bc" "bb" "bc" "bb" "bb" "bb"}
+countries = %w{"Germany" "USA" "Japan" "USA" "Gt.Britain" "Gt.Britain" "USA" "Japan"}
+num_guns = %w{8 9 8 9 6 8 12 9}
+bores = %w{15 16 14 16 15 15 14 18}
+displacements = %w{42000 46000 32000 37000 32000 29000 32000 65000}
+
+klass_entries = []
+klasses.length.times do |index|
+  entry = []
+  entry << klasses[index]
+  entry <<  types[index]
+  entry <<  countries[index]
+  entry << num_guns[index]
+  entry << bores[index]
+  entry << displacements[index]
+  klass_entries << entry
+end
+%>
+
+<%
+battle_entries = []
+
+names = %w{"DenmarkStrait" "Guadalcanal" "NorthCape" "SurigaoStrait"}
+dates = %w{"5/24-27/41" "11/15/42" "12/26/43" "10/25/44"}
+
+names.length.times do |index|
+  entry = []
+  entry << names[index]
+  entry <<  dates[index]
+  battle_entries << entry
+end
+
+%>
+
+<%
+outcome_entries = []
+
+ships = %w{"Arizona" "Bismarck" "California" "DukeofYork" "Fuso" "Hood" "KingGeorgeV" "Kirishima" "PrinceofWales" "Rodney" "Scharnhorst" "SouthDakota" "Tennessee" "Washington" "WestVirginia" "Yamashiro"}
+outcome_and_results = %w{ "PearlHarbor" "sunk" "DenmarkStrait" "sunk" "SurigaoStrait" "ok" "NorthCape" "ok" "SurigaoStrait" "sunk" "DenmarkStrait" "sunk" "DenmarkStrait" "ok" "Guadalcanal" "sunk" "DenmarkStrait" "damaged" "DenmarkStrait" "ok" "NorthCape" "sunk" "Guadalcanal" "damaged" "SurigaoStrait" "ok" "Guadalcanal" "ok" "SurigaoStrait" "ok" "SurigaoStrait" "sunk" }
+
+
+ships.length.times do |index|
+  entry = []
+  entry << ships[index]
+  entry << outcome_and_results[2 * index] # outcome
+  entry << outcome_and_results[2 * index + 1] # result
+  outcome_entries << entry
+end
+
+%>
+
+<%
+ship_entries = []
+
+names = %w{"California" "Haruna" "Hiei" "Iowa" "Kirishima" "Kongo" "Missouri" "Musashi" "NewJersey" "NorthCarolina" "Ramillies" "Renown" "Repulse" "Resolution" "Revenge" "RoyalOak" "RoyalSovereign" "Tennessee" "Washington" "Wisconsin" "Yamato"} 
+klasses = %w{"Tennessee" "Kongo" "Kongo" "Iowa" "Kongo" "Kongo" "Iowa" "Yamato" "Iowa" "NorthCarolina" "Revenge" "Renown" "Renown" "Revenge" "Revenge" "Revenge" "Revenge" "Tennessee" "NorthCarolina" "Iowa" "Yamato"}
+launched = %w{"1921" "1915" "1914" "1943" "1915" "1913" "1944" "1942" "1943" "1941" "1917" "1916" "1916" "1916" "1916" "1916" "1916" "1920" "1941" "1944" "1941"}
+
+names.length.times do |index|
+  entry = []
+  entry << names[index]
+  entry <<  klasses[index]
+  entry <<  launched[index]
+  ship_entries << entry
+end
+
+%>
+
+
+<% klass_entries.each do |entry| %>
+\sqlexec_{insert into Classes values(<%= entry.join(',')%>)};
+<% end %>
+
+<% outcome_entries.each do |entry| %>
+\sqlexec_{insert into Outcomes values(<%= entry.join(',')%>)};
+<% end %>
+
+<% battle_entries.each do |entry| %>
+\sqlexec_{insert into Battles values(<%= entry.join(',')%>)};
+<% end %>
+
+<% ship_entries.each do |entry| %>
+\sqlexec_{insert into Ships values(<%= entry.join(',')%>)};
+<% end %>
