@@ -1,0 +1,6 @@
+// Which manufacturers make laptops with a hard disk of at least 100GB?
+\project_{maker}
+  \select_{hd >= 100}(
+    Product
+    \join
+    Laptop);

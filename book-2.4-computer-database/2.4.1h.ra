@@ -1,0 +1,35 @@
+// Find those manufacturers of at least two different computers 
+// (PCs or laptops) with speeds of at least 2.80.
+
+// remove makers with only one products
+\project_{maker}
+\select_{model1 <> model2} (
+  \rename_{maker, model2} (
+    // Manufactur with one product with speeds > 2.80
+    \project_{maker, model}(
+      Product
+      \join (
+        \select_{speed >= 2.8} (
+          \project_{model, speed} Laptop
+          \union
+          \project_{model, speed} PC
+        )
+      )
+    )
+  )
+  \join
+  \rename_{maker, model1} (
+    // Manufactur with one product with speeds > 2.80
+    \project_{maker, model}(
+      Product
+      \join (
+        \select_{speed >= 2.8} (
+          \project_{model, speed} Laptop
+          \union
+          \project_{model, speed} PC
+        )
+      )
+    )
+  )
+)
+;

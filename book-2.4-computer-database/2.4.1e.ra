@@ -1,0 +1,7 @@
+// Find those manufacturers that sell Laptops, but not PCs. 
+( \project_{maker} 
+  \select_{type = 'laptop'} Product)
+\diff
+( \project_{maker}
+  \select_{type = 'pc'} Product)
+;

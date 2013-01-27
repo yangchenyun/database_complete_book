@@ -1,0 +1,18 @@
+// Find the model number and price of all products (of any type) made by manufacturer B.
+\project_{model, price} (
+  \select_{maker = 'B'} (Product \join PC)
+)
+\union
+\project_{model, price} (
+  \select_{maker = 'B'} (Product \join Laptop)
+)
+\union
+\project_{model, price} (
+  \select_{maker = 'B'} (
+    /* necessary because model appears in both printer and product */
+    \rename_{printer_model, color, printer_type, price} Printer  
+    \join_{model = printer_model} 
+    Product 
+  )
+)
+;

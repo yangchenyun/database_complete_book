@@ -1,0 +1,11 @@
+// Find those hard-disk sizes that occur in two or more PCs.
+\project_{hd} (
+  \select_{model1 < model} (
+    \rename_{model1, hd} 
+      \project_{model, hd} PC
+    \join
+      \project_{model, hd} PC
+  )
+)
+;
+

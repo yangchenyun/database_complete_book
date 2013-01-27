@@ -1,0 +1,31 @@
+// Find the manufacturer(s) of the computer (PC or laptop) with the highest available speed.
+
+\project_{maker} (
+  Product
+  \join (
+    // computers with highest speed
+    (
+      \project_{model} Laptop
+      \union
+      \project_{model} PC
+    )
+    \diff
+    // computers whose speed is lower than some others
+    \project_{model1} (
+      \rename_{model1, speed1} (
+        // all computers
+        \project_{model, speed} Laptop
+        \union
+        \project_{model, speed} PC
+      )
+      \join_{speed1 < speed2}
+      \rename_{model2, speed2} (
+        // all computers
+        \project_{model, speed} Laptop
+        \union
+        \project_{model, speed} PC
+      )
+    )
+  )
+)
+;

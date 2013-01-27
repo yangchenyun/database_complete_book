@@ -1,0 +1,45 @@
+// Find the manufacturers who sell exactly three different models of PC.
+// hint: find at least three and minus at least four 
+\project_{maker}
+\select_{model1 < model2 and model1 < model3 and model2 < model3} (
+  //map the model three times to column
+  \rename_{maker, model1}
+    \project_{maker, model} (
+      Product \join PC
+    )
+  \join
+  \rename_{maker, model2}
+    \project_{maker, model} (
+      Product \join PC
+    )
+  \join
+  \rename_{maker, model3}
+    \project_{maker, model} (
+      Product \join PC
+    )
+)
+\diff
+\project_{maker}
+\select_{model1 < model2 and model1 < model3 and model1 < model4 and model2 < model3 and model2 < model4 and model3 < model4} (
+  //map the model three times to column
+  \rename_{maker, model1}
+    \project_{maker, model} (
+      Product \join PC
+    )
+  \join
+  \rename_{maker, model2}
+    \project_{maker, model} (
+      Product \join PC
+    )
+  \join
+  \rename_{maker, model3}
+    \project_{maker, model} (
+      Product \join PC
+    )
+  \join
+  \rename_{maker, model4}
+    \project_{maker, model} (
+      Product \join PC
+    )
+)
+;

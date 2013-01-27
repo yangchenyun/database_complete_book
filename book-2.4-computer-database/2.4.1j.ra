@@ -1,0 +1,21 @@
+// Find the manufacturers of PCs with at least three different speeds.
+
+\project_{maker}
+\select_{speed1 < speed2 and speed1 < speed3 and speed2 < speed3} (
+  //map the speed three times to column
+  \rename_{maker, speed1}
+    \project_{maker, speed} (
+      Product \join PC
+    )
+  \join
+  \rename_{maker, speed2}
+    \project_{maker, speed} (
+      Product \join PC
+    )
+  \join
+  \rename_{maker, speed3}
+    \project_{maker, speed} (
+      Product \join PC
+    )
+)
+;

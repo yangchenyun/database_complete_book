@@ -1,0 +1,9 @@
+// Find those pairs of PC models that have both the same speed and RAM. 
+// A pair should be listed only once; e.g., list (i, j) but not (j, i).
+\project_{model1, model2} (
+  \rename_{model1, speed1, ram1}
+    \project_{model, speed, ram} PC
+  \join_{speed1 = speed2 and ram1 = ram2 and model1 < model2}
+  \rename_{model2, speed2, ram2}
+    \project_{model, speed, ram} PC
+);

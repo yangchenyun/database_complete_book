@@ -1,0 +1,3 @@
+// Find the model numbers of all color laser printers.
+\project_{model}
+  \select_{color = 'true' AND type = 'laser'} Printer;
