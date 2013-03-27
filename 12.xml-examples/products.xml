@@ -1,0 +1,58 @@
+<Products>
+  <Maker name="A">
+    <PC model="1001" price="2114">
+      <Speed>2. 66</Speed>
+      <RAM>1024</RAM>
+      <HardDisk>250</HardDisk>
+    </PC>
+    <PC model="1002" price="995">
+      <Speed>2. 10</Speed>
+      <RAM>512</RAM>
+      <HardDisk>250</HardDisk>
+    </PC>
+    <Laptop model="2004" price="1150">
+      <Speed>2. 00</Speed>
+      <RAM>512</RAM>
+      <HardDisk>60</HardDisk>
+      <Screen>13. 3</Screen>
+    </Laptop>
+    <Laptop model="2005" price="2500">
+      <Speed>2. 16</Speed>
+      <RAM>1024</RAM>
+      <HardDisk>120</HardDisk>
+      <Screen>17.0</Screen>
+    </Laptop>
+  </Maker>
+  <Maker name="E">
+    <PC model="1011" price="959">
+      <Speed>l.86</Speed>
+      <RAM>2048</RAM>
+      <HardDisk>160</HardDisk>
+    </PC>
+    <PC model="1012" price="649">
+      <Speed>2. 80</Speed>
+      <RAM>1024</RAM>
+      <HardDisk>160</HardDisk>
+    </PC>
+    <Laptop model="2001" price="3673">
+      <Speed>2. 00</Speed>
+      <RAM>2048</RAM>
+      <HardDisk>240</HardDisk>
+      <Screen>20.1</Screen>
+    </Laptop>
+    <Printer model="3002" price="239">
+      <Color>false</Color>
+      <Type>laser</Type>
+    </Printer>
+  </Maker>
+  <Maker name="H">
+    <Printer model="3006" price="100">
+      <Color>true</Color>
+      <Type>ink-jet</Type>
+    </Printer>
+    <Printer model="3007" price="200">
+      <Color>true</Color>
+      <Type>laser</Type>
+    </Printer>
+  </Maker>
+</Products>

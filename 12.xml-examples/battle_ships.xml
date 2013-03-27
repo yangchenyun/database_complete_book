@@ -1,0 +1,36 @@
+<Ships>
+  <Class name="Kongo" type="be" country="Japan" numGuns="8" bore="14" displacement="32000">
+    <Ship name="Kongo" launched="1913"/>
+    <Ship name="Hiei" launched="1914"/>
+    <Ship name="Kirishima" launched="1915">
+      <Battle outcome="sunk">Guadalcanal</Battle>
+    </Ship>
+    <Ship name="Haruna" launched="1915"/>
+  </Class>
+  <Class name="North Carolina" type="bb" country="USA" numGuns="9" bore="16" displacement="37000">
+    <Ship name="North Carolina" launched="1941"/>
+    <Ship name="Washington" launched="1941">
+      <Battle outcome="ok">Guadalcanal</Battle>
+    </Ship>
+  </Class>
+  <Class name="Tennessee" type="bb" country="USA" numGuns="12" bore="14" displacement="32000">
+    <Ship name="Tennessee" launched="1920">
+      <Battle outcome="ok">Surigao Strait</Battle>
+    </Ship>
+    <Ship name="California" launched="1921">
+      <Battle outcome="ok">Surigao Strait</Battle>
+    </Ship>
+  </Class>
+  <Class name="King George V" type="bb" country="Great Britain" numGuns="10" bore="14" displacement="32000">
+    <Ship name="King George V" launched="1940"/>
+    <Ship name="Prince of Wales" launched="1941">
+      <Battle outcome="damaged">Denmark Strait</Battle>
+      <Battle outcome="sunk">Malaya</Battle>
+    </Ship>
+    <Ship name="Duke of York" launched="1941">
+      <Battle outcome="ok">North Cape</Battle>
+    </Ship>
+    <Ship name="Howe" launched="1942"/>
+    <Ship name="Anson" launched="1942"/>
+  </Class>
+</Ships> 
